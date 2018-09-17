@@ -8,6 +8,7 @@ y = my_data[:, 2].reshape(-1,1) # create the y matrix
 plt.scatter(my_data[:, 0].reshape(-1,1), y)
 
 # notice small alpha value
+
 alpha = 0.0001
 iters = 1000
 

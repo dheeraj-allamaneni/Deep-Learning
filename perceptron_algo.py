@@ -14,32 +14,32 @@ y = np.array([1,1,1,-1,-1,-1])
 
 def perceptron_algo(X, Y):
 
-    w = np.zeros(len(X[0]))
+    w = np.zeros(len(X[0]))# initiating w to zeros as per the given problem *remember this weight vector also includes bias term so the initialization is correct.
     eta = 1
     n = 30
     errors = []
 
     for t in range(n):
-        total_error = 0
+        tot_err = 0
         for i, x in enumerate(X):
             if (np.dot(X[i], w)*Y[i]) <= 0:
-                total_error += (np.dot(X[i], w)*Y[i])
+                tot_err += (np.dot(X[i], w)*Y[i])
                 w = w + eta*X[i]*Y[i]
-        errors.append(total_error*-1)
+        errors.append(tot_err*-1)
         
-    # plt.plot(errors)
+    # plt.plot(error's)
     # plt.xlabel('Epoch')
-    # plt.ylabel('Total Loss')
-    
-    return w
+    # plt.ylabel('Total los')
+    #This weight vector also includes the bias term
+    return w # this will return -13 1 -17
 w=perceptron_algo(X,y)
 print(perceptron_algo(X,y))
 
 for d, sample in enumerate(X):
-    # Ploting the negative sample data
+    # Ploting the -ve sample data
     if d < 2:
         plt.scatter(sample[0], sample[1], s=120, marker='_', linewidths=2)
-    # Ploting the positive sample data
+    # Ploting the +ve sample data
     else:
         plt.scatter(sample[0], sample[1], s=120, marker='+', linewidths=2)
 plt.plot([1.61,1.27],[4.57,1.099])
